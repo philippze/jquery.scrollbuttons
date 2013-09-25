@@ -8,7 +8,7 @@ Scroll with javascript using buttons instead of the scollbar.
 Usage
 =====
 
-1) Include jQuery
+1) Include jQuery >= 1.6
 
 2) Include jquery.scrollbuttons.js
 
