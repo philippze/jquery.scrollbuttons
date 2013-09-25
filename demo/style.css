@@ -1,7 +1,29 @@
-body { margin: 100px; }
-.outer-box { width: 100px; height: 150px; overflow: auto; position: relative; }
-.inner-box { width: 100px; height: 300px; background-color: blue; }
-.up { position: absolute; top: 0px; background-color: red; }
-.down { position: absolute; bottom: 0px; background-color: red; }
+body {  }
 
-.outer-box { float: left; margin-right: 100px; }
+.clear { clear: both; }
+
+.intro {
+	margin-left: 100px;
+	max-width: 700px;
+}
+
+.example {
+	margin: 100px;
+	max-width: 700px;
+}
+.outer-box {
+	border: 1px solid black;
+	float: left;
+	height: 190px;
+	margin-right: 100px;
+	overflow: auto;
+	position: relative;
+	width: 240px;
+}
+.inner-box {
+	background-color: #cfc;
+	padding: 20px;
+	width: 200px;
+}
+.up { position: absolute; top: 0px; background-color: red; display: none;}
+.down { position: absolute; bottom: 0px; background-color: red; display: none;}

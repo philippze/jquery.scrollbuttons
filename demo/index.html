@@ -10,24 +10,175 @@
 </head>
 
 <body>
-	<div class="outer-box">
-		<div class="inner-box">
-			Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend.
-		</div>
-		<div class='up'>Up</div>
-		<div class="down">Down</div>
+	<div class="intro">
+		<h1>jquery.scollButtons examples</h1>
+		<p>
+			To use the scrollbuttons plugin, it is necessary to include
+			jQuery and the plugin file, and to call the plugin.
+			In the present document, we do it like this:
+		</p>
+		<pre>
+&lt;script src="jquery-2.0.3.min.js">&lt;/script>
+&lt;script src="../jquery.scrollButtons.js">&lt;/script>
+&lt;script>
+    $(document).ready(function () {
+        ... here come the commands explained below ...
+    });
+&lt;/script>
+		</pre>
 	</div>
-	<div class="outer-box">
-		<div class="inner-box">
-			Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend.
+
+
+
+	<div class="simplest example">
+		<h2>The simplest example</h2>
+		<p>
+			jquery.scrollButtons will hide the vertical scrollbar and let
+			you scroll with buttons instead. If you do not pass selectors
+			for the buttons as plugin options, the plugin will automatically
+			create an up- and a down-button.
+		</p>
+		<pre>$('.simplest .withButtons').scrollButtons();</pre>
+		<div class="outer-box">
+			<div class="inner-box">
+				<h3>Without plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
 		</div>
-		<div class='up'>Up</div>
-		<div class="down">Down</div>
+		<div class="outer-box">
+			<div class="inner-box withButtons">
+				<h3>With plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+
+	<div class="example customButtons">
+		<h2>Customize the buttons</h2>
+		<p>
+			With the 'up' and 'down' options you can pass selectors to your
+			own buttons. These buttons should be sisters of the scrollable
+			area, and should usually have an absolut position. Here, we
+			define display: none by default, such that the buttons do not
+			appear in the version without the plugin. jquery.scrollButtons
+			fades in the buttons if needed, and will also fade them out,
+			if no scrolling is necessary.
+		</p>
+		<pre>
+$('.customButtons .withButtons').scrollButtons({
+    up: '.up',
+    down: '.down'});
+		</pre>
+		<div class="outer-box">
+			<div class="inner-box">
+				<h3>Without plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+			<div class='up'>My Up Button</div>
+			<div class="down">My Down Button</div>
+		</div>
+		<div class="outer-box">
+			<div class="inner-box withButtons">
+				<h3>With plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+			<div class='up'>My Up Button</div>
+			<div class="down">My Down Button</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+
+	<div class="example scrollSlowly">
+		<h2>Scroll slowly</h2>
+		<p>
+			By default, the velocity is 300 pixel per second, and the
+			total scroll duration is limited to two seconds.
+			Here, we choose a very slow velocity and also enlarge the
+			duration limit.
+		</p>
+		<pre>$('.scrollSlowly .withButtons').scrollButtons({
+    velocity: 30,
+    maxDuration: 10000});</pre>
+		<div class="outer-box">
+			<div class="inner-box">
+				<h3>Without plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+		</div>
+		<div class="outer-box">
+			<div class="inner-box withButtons">
+				<h3>With plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+
+	<div class="example scrollQuickly">
+		<h2>Scroll quickly</h2>
+		<p>
+			To make the scrolling faster, it is usually sufficient
+			to limit the maximum duration, here to half a second.
+		</p>
+		<pre>$('.scrollQuickly .withButtons').scrollButtons({
+    maxDuration: 500});</pre>
+		<div class="outer-box">
+			<div class="inner-box">
+				<h3>Without plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+		</div>
+		<div class="outer-box">
+			<div class="inner-box withButtons">
+				<h3>With plugin</h3>
+				Der Lorem-ipsum-Text eignet sich zwar für die redaktionelle Arbeit, um Blindtextpassagen schnell über die Suchfunktion zu finden, jedoch lassen sich diverse Gestaltungsaufgaben nicht mit dieser Vorlage lösen. Da die Wortlängen und die Buchstabenhäufigkeit nicht der deutscher Texte entspricht, und Großbuchstaben im Deutschen eine viel größere Präsenz haben, lässt sich der eigentliche Grauwert eines Textblockes durch Lorem ipsum nicht beurteilen. Aus dem gleichen Grund ist auch der optische Zeilendurchschuss irreführend. (Quelle: Wikipedia)
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+
+	<div class="noActionNeeded example">
+		<h2>When no action is needed</h2>
+		<pre>$('.noActionNeeded .withButtons').scrollButtons();</pre>
+		<p>If there is no need to scroll, calling the Plugin will not have any effect.</p>
+		<div class="outer-box">
+			<div class="inner-box">
+				<h3>Without plugin</h3>
+				A very short text.
+			</div>
+		</div>
+		<div class="outer-box">
+			<div class="inner-box withButtons">
+				<h3>With plugin</h3>
+				A very short text.
+			</div>
+		</div>
+		<div class="clear"></div>
 	</div>
 	<script src="jquery-2.0.3.min.js"></script>
 	<script src="../jquery.scrollButtons.js"></script>
 	<script>
-		$('.inner-box').first().scrollButtons();
+		$(document).ready(function () {
+			$('.simplest .withButtons').scrollButtons();
+			$('.customButtons .withButtons').scrollButtons({
+				up: '.up',
+				down: '.down'});
+			$('.scrollSlowly .withButtons').scrollButtons({
+				velocity: 30,
+				maxDuration: 10000});
+			$('.scrollQuickly .withButtons').scrollButtons({
+				maxDuration: 500});
+			$('.noActionNeeded .withButtons').scrollButtons();
+		});
 	</script>
 </body>
 </html>
