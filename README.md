@@ -23,9 +23,12 @@ There is an example page [here](http://jquery.scrollbuttons.bruneck-berlin.com).
 Options
 =======
 
-up: Selector for the up-button
+up:   Selector for the up-button
+
 down: Selector for the down-button
+
 velocity: Scrolling velocity in pixel per second
+
 maxDuration: Maximum duration of the scrolling
 
 
