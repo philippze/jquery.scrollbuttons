@@ -71,6 +71,23 @@
             }, function () {
                 thisScrollableArea.$wrapper.stop();
             });
+            // TODO: This does not work yet.
+            //this.activateScrollingForTouchscreens();
+        },
+        activateScrollingForTouchscreens: function () {
+            var thisScrollableArea = this;
+            this.$down.bind('touchstart', function () {
+                thisScrollableArea.scrollDown();
+            });
+            this.$down.bind('touched', function () {
+                thisScrollableArea.$wrapper.stop();
+            });
+            this.$up.bind('touchstart', function () {
+                thisScrollableArea.scrollUp();
+            });
+            this.$up.bind('touched', function () {
+                thisScrollableArea.$wrapper.stop();
+            });
         },
         setButtons: function (options) {
             if (options.up === undefined) {
