@@ -35,7 +35,7 @@
         };
     ScrollableArea.prototype = {
         setExtraHeight: function () {
-            var extraHeight = this.getContentHeight() - this.$container.height() -20 ;
+            var extraHeight = this.getContentHeight() - this.$container.height();
             this.extraHeight = extraHeight;
         },
         getContentHeight: function () {
@@ -109,7 +109,7 @@
             this.$container.css({overflow: 'hidden', position: 'relative' });
             this.$wrapper.css({
                 height: this.$container.height() + 20,
-                width: this.$container.width() + 20,
+                width: this.$container.width(),
                 overflow: 'auto',
                 position: 'absolute',
                 top: 0,
