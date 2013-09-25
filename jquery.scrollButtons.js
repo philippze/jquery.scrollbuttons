@@ -108,8 +108,8 @@
             this.$wrapper = this.$content.parent();
             this.$container.css({overflow: 'hidden', position: 'relative' });
             this.$wrapper.css({
-                height: this.$container.height() + 20,
-                width: this.$container.width(),
+                height: this.$container.height(),
+                width: this.$container.width() + 20,
                 overflow: 'auto',
                 position: 'absolute',
                 top: 0,
@@ -127,7 +127,7 @@
 				$(this).data('scrollable-area').reload();
 			}
 		} else {
-			var settings = $.extend(defaults, options),
+			var settings = $.extend({}, defaults, options),
 				scrollableArea = new ScrollableArea($(this), settings);
 			scrollableArea.activateScrolling();
 			scrollableArea.displayButtons();
