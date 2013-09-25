@@ -1,11 +1,14 @@
-/** Use buttons instead of the scrollbar
+/** Use buttons instead of the scrollbar.
  **
  ** This was inspired by Samich's answer on stackoverflow.com, here:
  ** http://stackoverflow.com/a/8329376/1378264
  **
  ** Similar plugins:
  ** http://logicbox.net/jquery/simplyscroll/
+ ** https://github.com/mikecao/jquery-scrollable
  **
+ ** Copyright (c) 2013 Philipp Zedler <philipp@neue-musik.com>
+ ** Licensed under the MIT license
  ** 
  **/
 
@@ -58,18 +61,16 @@
         },
         activateScrolling: function () {
             var thisScrollableArea = this;
-            //if (this.extraHeight > 0) {
-                this.$down.hover(function () {
-                    thisScrollableArea.scrollDown();
-                }, function () {
-                    thisScrollableArea.$wrapper.stop();
-                });
-                this.$up.hover(function () {
-                    thisScrollableArea.scrollUp();
-                }, function () {
-                    thisScrollableArea.$wrapper.stop();
-                });
-            //}
+            this.$down.hover(function () {
+                thisScrollableArea.scrollDown();
+            }, function () {
+                thisScrollableArea.$wrapper.stop();
+            });
+            this.$up.hover(function () {
+                thisScrollableArea.scrollUp();
+            }, function () {
+                thisScrollableArea.$wrapper.stop();
+            });
         },
         setButtons: function (options) {
 			if (options.up === undefined) {
