@@ -73,28 +73,28 @@
             });
         },
         setButtons: function (options) {
-			if (options.up === undefined) {
-				this.$up = $(upButton);
-				this.$container.append(this.$up);
-			} else {
-				this.$up = this.$container.find(options.up);
-			}
-			if (options.down === undefined) {
-				this.$down = $(downButton);
-				this.$container.append(this.$down);
-			} else {
-				this.$down = this.$container.find(options.down);
-			}
-		},
+            if (options.up === undefined) {
+                this.$up = $(upButton);
+                this.$container.append(this.$up);
+            } else {
+                this.$up = this.$container.find(options.up);
+            }
+            if (options.down === undefined) {
+                this.$down = $(downButton);
+                this.$container.append(this.$down);
+            } else {
+                this.$down = this.$container.find(options.down);
+            }
+        },
         displayButtons: function () {
-			if (this.extraHeight > 0) {
-				this.$down.fadeIn();
+            if (this.extraHeight > 0) {
+                this.$down.fadeIn();
                 this.$up.fadeIn();
             } else {
-				this.$down.fadeOut();
-				this.$up.fadeOut();
-			}
-		},
+                this.$down.fadeOut();
+                this.$up.fadeOut();
+            }
+        },
         scrollDown: function () {
             this.scrollTo(this.extraHeight, this.getScrollDownDuration());
         },
@@ -118,21 +118,21 @@
             });
         },
         reload: function () {
-			this.setExtraHeight();
-			this.displayButtons();
-		}
+            this.setExtraHeight();
+            this.displayButtons();
+        }
     };
     $.fn.scrollButtons = function (options) {
-		if (options === 'reload') {
-			if ($(this).data('scroll-buttons-active') === true) {
-				$(this).data('scrollable-area').reload();
-			}
-		} else {
-			var settings = $.extend({}, defaults, options),
-				scrollableArea = new ScrollableArea($(this), settings);
-			scrollableArea.activateScrolling();
-			scrollableArea.displayButtons();
-		}
-		return this;
+        if (options === 'reload') {
+            if ($(this).data('scroll-buttons-active') === true) {
+                $(this).data('scrollable-area').reload();
+            }
+        } else {
+            var settings = $.extend({}, defaults, options),
+                scrollableArea = new ScrollableArea($(this), settings);
+            scrollableArea.activateScrolling();
+            scrollableArea.displayButtons();
+        }
+        return this;
     };
 }(jQuery));
